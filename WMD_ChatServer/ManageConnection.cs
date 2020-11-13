@@ -28,7 +28,7 @@ namespace WMD_ChatServer
     //******************************************
     public class ManageConnection
     {
-
+        FileHandler fh;
         ConnectRepo repo;
         public volatile bool run = true;
         public readonly object lockobj;
@@ -45,6 +45,7 @@ namespace WMD_ChatServer
         {
             repo = cr;
             lockobj = new object();
+            fh = new FileHandler();
         }
 
 
@@ -65,7 +66,7 @@ namespace WMD_ChatServer
             }
             catch
             {
-                Logger.Log("Failed to Reach Client");
+                Logger.Log(fh.eventLog, "Failed to Reach Client");
             }
         }
 
@@ -156,7 +157,7 @@ namespace WMD_ChatServer
                                     logString.Append(split[0]);
                                     logString.Append(" to user ");
                                     logString.Append(split[1]);
-                                    Logger.Log(logString.ToString());
+                                    Logger.Log(fh.eventLog, logString.ToString());
                                 }
                             }
                         }

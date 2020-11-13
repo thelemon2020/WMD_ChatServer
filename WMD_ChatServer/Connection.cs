@@ -80,7 +80,7 @@ namespace WMD_ChatServer
             }
             catch(SocketException e)
             {
-                Logger.Log(e.Message);
+                Logger.Log(fh.eventLog, e.Message);
             }
         }
 
@@ -106,7 +106,7 @@ namespace WMD_ChatServer
             }
             catch(SocketException e)
             {
-               Logger.Log(e.Message);
+               Logger.Log(fh.eventLog, e.Message);
             }
 
             return msgRec;
@@ -153,7 +153,7 @@ namespace WMD_ChatServer
                             StringBuilder logString = new StringBuilder();
                             logString.Append(Name);
                             logString.Append(" has registered");
-                            Logger.Log(logString.ToString());
+                            Logger.Log(fh.eventLog, logString.ToString());
                         }
                         else // If the user exists already, then send back a NACK
                         {
@@ -195,7 +195,7 @@ namespace WMD_ChatServer
                             StringBuilder logString = new StringBuilder();
                             logString.Append(Name);
                             logString.Append(" has connected");
-                            Logger.Log(logString.ToString());
+                            Logger.Log(fh.eventLog, logString.ToString());
                         }
                         else
                         {
@@ -219,7 +219,7 @@ namespace WMD_ChatServer
                 logString.Append(Name);
                 logString.Append(" Sent: ");
                 logString.Append(ReplyMsg);
-                Logger.Log(logString.ToString());
+                Logger.Log(fh.eventLog, logString.ToString());
             }
             else if(splitMsg[0] == "ACK")
             {
@@ -234,7 +234,7 @@ namespace WMD_ChatServer
                 StringBuilder logString = new StringBuilder();
                 logString.Append(Name);
                 logString.Append(" has disconnected");
-                Logger.Log(logString.ToString());
+                Logger.Log(fh.eventLog, logString.ToString());
             }
             else if(splitMsg[0] == "SHUTDOWN") // if a super user sends the server shut off command
             {
@@ -249,7 +249,7 @@ namespace WMD_ChatServer
                     StringBuilder logString = new StringBuilder();
                     logString.Append(Name);
                     logString.Append(" has shutdown the server");
-                    Logger.Log(logString.ToString());
+                    Logger.Log(fh.eventLog, logString.ToString());
                     lock(lockObj) // clear the client log so the first client to join starts at 35000 for their listener port again
                     {
                         fh.ClearClientLog();

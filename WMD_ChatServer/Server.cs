@@ -31,6 +31,7 @@ namespace WMD_ChatServer
         const int kDefaultPort = 23000;
         public ManageConnection manager;
         public ConnectRepo repo;
+        FileHandler fh;
 
 
         /////////////////////////////////////////
@@ -42,6 +43,7 @@ namespace WMD_ChatServer
         /////////////////////////////////////////
         public Server()
         {
+            fh = new FileHandler();
             try
             {
                 repo = new ConnectRepo();
@@ -52,7 +54,7 @@ namespace WMD_ChatServer
             }
             catch
             {
-               Logger.Log("Failed to start Server");
+               Logger.Log(fh.eventLog, "Failed to start Server");
             }
         }
 
@@ -80,7 +82,7 @@ namespace WMD_ChatServer
                 manager.Connect(listener);
             }
             listener.Stop(); // stop the listener after the shut down command is given
-            Logger.Log("Listener stopped");
+            Logger.Log(fh.eventLog, "Listener stopped");
         }
     }
 }
