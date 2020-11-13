@@ -26,6 +26,7 @@ namespace WMD_ChatServer
         private const int kPort = 35000;
         private string credentialPath;
         private string clientLog;
+        public string eventLog;
         private string super = "admin,!#/)zW??C?J\u000eJ?\u001f?"; // this is awful form, I know, not very secure
                                                                    // Was having trouble figuring out another way to do it
 
@@ -40,6 +41,7 @@ namespace WMD_ChatServer
         {
             credentialPath = "./login.txt"; // define paths to the files
             clientLog = "./clientLog.txt";
+            eventLog = "./eventLog.txt";
             try
             {
                 if (!File.Exists(credentialPath)) // if file doesn't exist for login info, make it
@@ -53,10 +55,15 @@ namespace WMD_ChatServer
                     var logStream = File.Create(clientLog);
                     logStream.Close();
                 }
+                if(!File.Exists(eventLog))
+                {
+                    var logStream = File.Create(eventLog);
+                    logStream.Close();
+                }
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(eventLog, e.Message);
             }
         }
 
@@ -79,7 +86,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(eventLog, e.Message);
                 return port;
             }
 
@@ -103,14 +110,8 @@ namespace WMD_ChatServer
         /////////////////////////////////////////
         public void UpdateClientLog(int port)
         {
-            try
-            {
-                File.AppendAllText(clientLog, "port: " + port.ToString() + "In use.\n");
-            }
-            catch(IOException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+            string message = "Port: " + port.ToString() + " In Use";
+            Logger.Log(clientLog, message);
         }
 
 
@@ -124,11 +125,11 @@ namespace WMD_ChatServer
         {
             try
             {
-                File.WriteAllText(clientLog, "");
+                Logger.Log(clientLog, "");
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(eventLog, e.Message);
             }
         }
 

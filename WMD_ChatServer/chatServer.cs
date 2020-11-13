@@ -14,6 +14,7 @@ namespace WMD_ChatServer
     public partial class chatServer : ServiceBase
     {
         Server myServer { get; set; }
+        FileHandler fh;
         public chatServer()
         {
             InitializeComponent();
@@ -22,11 +23,14 @@ namespace WMD_ChatServer
         protected override void OnStart(string[] args)
         {
             myServer = new Server();
+            fh = new FileHandler();
+            Logger.Log(fh.eventLog, "Server Started");
         }
 
         protected override void OnStop()
         {
             myServer.repo.msgQueue.Enqueue("DISCONNECT,<EOF>");
+            Logger.Log(fh.eventLog, "Server Stopped");
             Thread.Sleep(1000);
         }
     }
