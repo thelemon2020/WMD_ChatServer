@@ -17,7 +17,7 @@ namespace WMD_ChatServer
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new chatServer()
             };
             ServiceBase.Run(ServicesToRun);
         }

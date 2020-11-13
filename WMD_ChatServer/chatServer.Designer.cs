@@ -1,6 +1,6 @@
 ﻿namespace WMD_ChatServer
 {
-    partial class Service1
+    partial class chatServer
     {
         /// <summary> 
         /// Required designer variable.

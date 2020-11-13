@@ -44,11 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.cs">
+    <Compile Include="AckCommand.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="ConnectRepo.cs" />
+    <Compile Include="FileHandler.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ManageConnection.cs" />
+    <Compile Include="NackCommand.cs" />
+    <Compile Include="ReplyCommand.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="chatServer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Service1.Designer.cs">
-      <DependentUpon>Service1.cs</DependentUpon>
+    <Compile Include="chatServer.Designer.cs">
+      <DependentUpon>chatServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
