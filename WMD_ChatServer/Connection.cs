@@ -80,7 +80,7 @@ namespace WMD_ChatServer
             }
             catch(SocketException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
             }
         }
 
@@ -106,7 +106,7 @@ namespace WMD_ChatServer
             }
             catch(SocketException e)
             {
-                Console.WriteLine(e.ToString());
+               Logger.Log(e.Message);
             }
 
             return msgRec;
@@ -150,7 +150,10 @@ namespace WMD_ChatServer
                             AckCommand ack = new AckCommand();
                             fh.WriteCredentials(Name + "," + Password);
                             AckMsg = ack.BuildProtocol(); // send an acknowledgment back
-                            Console.WriteLine("{0} Has Registered", Name);
+                            StringBuilder logString = new StringBuilder();
+                            logString.Append(Name);
+                            logString.Append(" has registered");
+                            Logger.Log(logString.ToString());
                         }
                         else // If the user exists already, then send back a NACK
                         {
@@ -189,7 +192,10 @@ namespace WMD_ChatServer
                             {
                                 AckMsg = ack.BuildProtocol(kNormalUser, repo, c); // build the acknowledgement for normal user
                             }
-                            Console.WriteLine("User {0} Connected", Name);
+                            StringBuilder logString = new StringBuilder();
+                            logString.Append(Name);
+                            logString.Append(" has connected");
+                            Logger.Log(logString.ToString());
                         }
                         else
                         {
@@ -209,7 +215,11 @@ namespace WMD_ChatServer
                 string tmpMsg = reply.CheckMessage(splitMsg); // Since we split on commas, rebuild the message to not be split if it had commas in it
                 ReplyMsg = reply.BuildProtocol(tmpMsg); // build the reply
                 repo.AddMsg(ReplyMsg); // Add the message that came in to the queue to be sent
-                Console.WriteLine("{0} Sent: {1}", Name, ReplyMsg);
+                StringBuilder logString = new StringBuilder();
+                logString.Append(Name);
+                logString.Append(" Sent: ");
+                logString.Append(ReplyMsg);
+                Logger.Log(logString.ToString());
             }
             else if(splitMsg[0] == "ACK")
             {
@@ -221,7 +231,10 @@ namespace WMD_ChatServer
                 repo.Remove(Name); // remove the user
                 AckCommand ack = new AckCommand();
                 AckMsg = ack.BuildProtocol(); // send ack of command received ok
-                Console.WriteLine("User {0} Disconnected", Name);
+                StringBuilder logString = new StringBuilder();
+                logString.Append(Name);
+                logString.Append(" has disconnected");
+                Logger.Log(logString.ToString());
             }
             else if(splitMsg[0] == "SHUTDOWN") // if a super user sends the server shut off command
             {
@@ -233,7 +246,10 @@ namespace WMD_ChatServer
                     AckCommand ack = new AckCommand();
                     AckMsg = ack.BuildProtocol();
                     ShutDown = true;
-                    Console.WriteLine("{0} Shutdown the Server");
+                    StringBuilder logString = new StringBuilder();
+                    logString.Append(Name);
+                    logString.Append(" has shutdown the server");
+                    Logger.Log(logString.ToString());
                     lock(lockObj) // clear the client log so the first client to join starts at 35000 for their listener port again
                     {
                         fh.ClearClientLog();

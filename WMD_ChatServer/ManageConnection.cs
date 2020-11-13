@@ -65,7 +65,7 @@ namespace WMD_ChatServer
             }
             catch
             {
-                Console.WriteLine("Failed to Reach Client");
+                Logger.Log("Failed to Reach Client");
             }
         }
 
@@ -151,7 +151,12 @@ namespace WMD_ChatServer
                                 }
                                 catch
                                 {
-                                    Console.WriteLine("Failed to send instruction to user {0}", split[1]); ;
+                                    StringBuilder logString = new StringBuilder();
+                                    logString.Append("Failed to send ");
+                                    logString.Append(split[0]);
+                                    logString.Append(" to user ");
+                                    logString.Append(split[1]);
+                                    Logger.Log(logString.ToString());
                                 }
                             }
                         }

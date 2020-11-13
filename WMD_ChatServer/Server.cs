@@ -52,7 +52,7 @@ namespace WMD_ChatServer
             }
             catch
             {
-                Console.WriteLine("Failed to start Server");
+               Logger.Log("Failed to start Server");
             }
         }
 
@@ -66,7 +66,6 @@ namespace WMD_ChatServer
         /////////////////////////////////////////
         private void startServer(TcpListener listener)
         {
-            Console.WriteLine("Listening for Connections. . .");
             Thread replyThread = new Thread(new ThreadStart(() => manager.SendReplies(repo))); // start the message reply thread
             replyThread.Start(); // start the message reply thread
 
@@ -79,11 +78,9 @@ namespace WMD_ChatServer
                 }
 
                 manager.Connect(listener);
-                Console.WriteLine("Connected!");
             }
             listener.Stop(); // stop the listener after the shut down command is given
-            Console.WriteLine("Server stopped. . .\nPress any key to continue.");
-            Console.ReadLine();
+            Logger.Log("Listener stopped");
         }
     }
 }
