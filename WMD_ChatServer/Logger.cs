@@ -14,7 +14,7 @@ namespace WMD_ChatServer
         private static readonly object obj = new object();
         public static void Log(string path, string msg)
         {
-            string timeStamp = DateTime.UtcNow.ToString();
+            string timeStamp = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")).ToString();
             string logString = timeStamp + " - " + msg + "\n";
             lock (obj)
             {

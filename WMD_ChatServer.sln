@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMD_ChatServer", "WMD_ChatS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHarness", "TestHarness\TestHarness.csproj", "{4785F6ED-6BE0-4BC4-A565-6048D1AB17CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76289038-AEBA-4747-9066-3B6EA9A9A8A6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Documents\Zoom\2020-11-13 14.20.36 Nbyam6317@conestogac.on.ca's Zoom Meeting 96764013162\zoom_0.mp4 = ..\..\..\OneDrive\Documents\Zoom\2020-11-13 14.20.36 Nbyam6317@conestogac.on.ca's Zoom Meeting 96764013162\zoom_0.mp4
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
