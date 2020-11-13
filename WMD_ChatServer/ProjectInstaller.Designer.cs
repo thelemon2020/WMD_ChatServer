@@ -33,7 +33,7 @@
             // 
             // WMD_ChatServerServiceProcessInstaller
             // 
-            this.WMD_ChatServerServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.WMD_ChatServerServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalService;
             this.WMD_ChatServerServiceProcessInstaller.Password = null;
             this.WMD_ChatServerServiceProcessInstaller.Username = null;
             this.WMD_ChatServerServiceProcessInstaller.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
