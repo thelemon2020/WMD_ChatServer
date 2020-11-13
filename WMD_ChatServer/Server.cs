@@ -1,11 +1,11 @@
 ﻿//*********************************************
 // File			 : Server.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, Chris Lemon
-// Last Change   : 2020-11-09
+// Last Change   : 2020-11-12
 // Description	 : The server class is where the main is held, and it's here that the server listens for new connections
 //               : and then uses the manager class to connect and start a client thread. The server listens until it gets
-//               : the command to stop running from the admin.
+//               : the command to stop running from the admin. Replaced all console writes with log writes.
 //*********************************************
 
 
@@ -48,6 +48,13 @@ namespace WMD_ChatServer
             manager = new ManageConnection(repo);          
         }
 
+
+        /////////////////////////////////////////
+        // Method       : startListener
+        // Description  : a method that starts up the listener so the server can accept incoming client communications
+        // Parameters   : N/A
+        // Returns      : N/A
+        /////////////////////////////////////////
         public void startListener()
         {
             try

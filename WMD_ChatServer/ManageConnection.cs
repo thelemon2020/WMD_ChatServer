@@ -1,11 +1,11 @@
 ﻿//*********************************************
 // File			 : ManageConnection.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, 8656317
-// Last Change   : 2020-11-09
+// Last Change   : 2020-11-12
 // Description	 : The manage connection class is the class that grabs and creates threads from TcpClient objects with the methods
 //				 : Contained, as well as runs a reply loop in a separate thread that acts solely to send messages to all connected
-//				 : Clients.
+//				 : Clients. Changed all console writes to log additions in the event log.
 //*********************************************
 
 
@@ -152,6 +152,7 @@ namespace WMD_ChatServer
                                 }
                                 catch
                                 {
+                                    // Write the exception to the event log
                                     StringBuilder logString = new StringBuilder();
                                     logString.Append("Failed to send ");
                                     logString.Append(split[0]);

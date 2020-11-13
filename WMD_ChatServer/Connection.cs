@@ -1,8 +1,8 @@
 ﻿//*********************************************
 // File			 : Connection.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, 8656317
-// Last Change   : 2020-11-09
+// Last Change   : 2020-11-12
 // Description	 : A connection class that holds relevant details about the user, as well as methods to send, receive,
 //               : and parse data that has come in. It serves to keep all client data in one place
 //*********************************************
@@ -49,7 +49,7 @@ namespace WMD_ChatServer
         /////////////////////////////////////////
         // Method       : Connection (ctor)
         // Description  : The Connection class ctor, this initializes some values and grabs the reference to the repo so that
-        //              : the parser can add details or grab details where necessary
+        //              : the parser can add details or grab details where necessary. Updated file to user logger instead of console writes
         // Parameters   : ConnectRepo cr : the repo class that holds user details and messages
         //              : object obj : the object used in the mutex when accessing files to see if a user is registered
         // Returns      : N/A

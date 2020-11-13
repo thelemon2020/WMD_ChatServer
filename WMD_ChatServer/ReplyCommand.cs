@@ -1,6 +1,6 @@
 ﻿//*********************************************
 // File			 : ReplyCommand.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, 8656317
 // Last Change   : 2020-11-09
 // Description	 : A class used to build protocol specific outgoing reply messages to send back to clients.

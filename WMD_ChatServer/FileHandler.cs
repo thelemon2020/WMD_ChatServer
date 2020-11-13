@@ -1,9 +1,10 @@
 ﻿//*********************************************
 // File			 : FileHandler.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, Chris Lemon
-// Last Change   : 2020-11-09
-// Description	 : A class file that does all the interaction with the files necessary to the server's function
+// Last Change   : 2020-11-12
+// Description	 : A class file that does all the interaction with the files necessary to the server's function. Added in the event log
+//               : File path as a const string.
 //*********************************************
 
 

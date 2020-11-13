@@ -1,6 +1,6 @@
 ﻿//*********************************************
 // File			 : ConnectRepo.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, Chris Lemon
 // Last Change   : 2020-11-09
 // Description	 : A class that acts as a repo for all collections. The two collections used are a concurrent dictionary to hold

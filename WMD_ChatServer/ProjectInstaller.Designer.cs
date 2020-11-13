@@ -1,4 +1,13 @@
-﻿namespace WMD_ChatServer
+﻿//*********************************************
+// File			 : ProjectInstaller.Designer.cs
+// Project		 : PROG2121 - A6 Server as a Service
+// Programmer	 : Nick Byam, Chris Lemon
+// Last Change   : 2020-11-12
+// Description	 : Automatically added code for the service installer
+//*********************************************
+
+
+namespace WMD_ChatServer
 {
     partial class ProjectInstaller
     {

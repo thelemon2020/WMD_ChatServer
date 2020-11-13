@@ -1,4 +1,13 @@
-﻿using System;
+﻿//*********************************************
+// File			 : Program.cs
+// Project		 : PROG2121 - A6 Server as a Service
+// Programmer	 : Nick Byam, Chris Lemon
+// Last Change   : 2020-11-12
+// Description	 : Service main that creates the server service to be run.
+//*********************************************
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
@@ -9,9 +18,6 @@ namespace WMD_ChatServer
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         static void Main()
         {
             ServiceBase[] ServicesToRun;

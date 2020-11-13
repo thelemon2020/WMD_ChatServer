@@ -1,6 +1,6 @@
 ﻿//*********************************************
 // File			 : AckCommand.cs
-// Project		 : PROG2121 - A5 Chat Program
+// Project		 : PROG2121 - A6 Server as a Service
 // Programmer	 : Nick Byam, Chris Lemon
 // Last Change   : 2020-11-09
 // Description	 : A command class for building acknowledgements to send back to the client
