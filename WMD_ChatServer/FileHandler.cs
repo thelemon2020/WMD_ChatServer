@@ -56,7 +56,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+               Logger.Log(e.Message);
             }
         }
 
@@ -79,7 +79,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
                 return port;
             }
 
@@ -109,7 +109,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
             }
         }
 
@@ -128,7 +128,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
             }
         }
 
@@ -148,7 +148,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
             }
         }
 
@@ -198,7 +198,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(e.Message);
                 return false;
             }
             return false; // if the username and password mix is not found, return false

@@ -18,7 +18,7 @@ namespace WMD_ChatServer
             }
             myLogFile.Source = "ChatServerSource";
             myLogFile.Log = "ChatServerLog";
-
+            myLogFile.WriteEntry(logString);
         }
     }
 }

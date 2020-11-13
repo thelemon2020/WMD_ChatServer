@@ -65,7 +65,7 @@ namespace WMD_ChatServer
             }
             catch
             {
-                Console.WriteLine("Failed to Reach Client");
+                Logger.Log("Failed to Reach Client");
             }
         }
 

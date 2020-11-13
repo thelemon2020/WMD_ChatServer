@@ -22,12 +22,14 @@ namespace WMD_ChatServer
         protected override void OnStart(string[] args)
         {
             myServer = new Server();
+            Logger.Log("Server has started");
         }
 
         protected override void OnStop()
         {
             myServer.repo.msgQueue.Enqueue("DISCONNECT,<EOF>");
             Thread.Sleep(1000);
+            Logger.Log("Server Shut Down");
         }
     }
 }
