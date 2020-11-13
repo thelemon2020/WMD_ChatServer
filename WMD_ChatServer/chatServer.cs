@@ -13,8 +13,9 @@ namespace WMD_ChatServer
 {
     public partial class chatServer : ServiceBase
     {
-        Server myServer { get; set; }
-        FileHandler fh;
+        public Server myServer { get; set; }
+        public FileHandler fh { get; set; }
+        public Thread listenerThread { get; set; }
         public chatServer()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace WMD_ChatServer
         {
             myServer = new Server();
             fh = new FileHandler();
+            ThreadStart listenerThreadStart = new ThreadStart(myServer.startListener);
+            listenerThread = new Thread(listenerThreadStart);
+            listenerThread.Start();            
             Logger.Log(fh.eventLog, "Server Started");
         }
 
@@ -31,7 +35,8 @@ namespace WMD_ChatServer
         {
             myServer.repo.msgQueue.Enqueue("DISCONNECT,<EOF>");
             Logger.Log(fh.eventLog, "Server Stopped");
-            Thread.Sleep(1000);
+            myServer.manager.run = false;
+            listenerThread.Join();
         }
     }
 }

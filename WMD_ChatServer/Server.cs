@@ -26,7 +26,7 @@ namespace WMD_ChatServer
     //          : when it sees a connection is pending it shoots off into a method of the ManageConnection class and 
     //          : accepts the new client.
     //******************************************
-    class Server
+    public class Server
     {
         const int kDefaultPort = 23000;
         public ManageConnection manager;
@@ -44,20 +44,23 @@ namespace WMD_ChatServer
         public Server()
         {
             fh = new FileHandler();
+            repo = new ConnectRepo();
+            manager = new ManageConnection(repo);          
+        }
+
+        public void startListener()
+        {
             try
             {
-                repo = new ConnectRepo();
-                manager = new ManageConnection(repo);
                 TcpListener listener = new TcpListener(IPAddress.Any, kDefaultPort);
                 listener.Start();
                 startServer(listener);
             }
             catch
             {
-               Logger.Log(fh.eventLog, "Failed to start Server");
+                Logger.Log(fh.eventLog, "Failed to start Server");
             }
         }
-
 
         /////////////////////////////////////////
         // Method       : StartServer
