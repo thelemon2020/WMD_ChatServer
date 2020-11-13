@@ -149,7 +149,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(eventLog, e.Message);
             }
         }
 
@@ -199,7 +199,7 @@ namespace WMD_ChatServer
             }
             catch(IOException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.Log(eventLog, e.Message);
                 return false;
             }
             return false; // if the username and password mix is not found, return false
