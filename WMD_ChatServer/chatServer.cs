@@ -27,9 +27,10 @@ namespace WMD_ChatServer
 
         protected override void OnStop()
         {
+            Logger.Log("Server Shut Down");
             myServer.repo.msgQueue.Enqueue("DISCONNECT,<EOF>");
             Thread.Sleep(1000);
-            Logger.Log("Server Shut Down");
+            myServer.manager.run = false;
         }
     }
 }
