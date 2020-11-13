@@ -39,6 +39,7 @@ namespace WMD_ChatServer
         /////////////////////////////////////////
         public FileHandler()
         {
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             credentialPath = "./login.txt"; // define paths to the files
             clientLog = "./clientLog.txt";
             eventLog = "./eventLog.txt";
